@@ -20,4 +20,6 @@ process.addListener('SIGTERM', () => {
 // })
 
 const p = child_process.spawn('bash', ['-c', 'trap "echo BASHSIGINT" SIGINT; trap "echo BASHSIGTERM" SIGTERM; echo Hello World from bash; sleep 60'])
+p.stdout.on('data', console.log)
+p.stderr.on('data', console.log)
 p.addListener('message', console.log)
