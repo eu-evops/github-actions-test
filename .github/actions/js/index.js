@@ -9,8 +9,5 @@ process.addListener('SIGTERM', () => {
   console.log('Hello World from SIGTERM');
 })
 
-process.addListener('SIGKILL', () => {
-  console.log('Hello World from SIGKILL');
-})
 
 setInterval(() => { console.log('timeout') }, 1000);
