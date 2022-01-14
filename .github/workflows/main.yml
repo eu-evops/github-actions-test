@@ -1,7 +1,7 @@
 name: INT
 
 on:
-  push:
+  push: {}
   
 jobs:
   main:
