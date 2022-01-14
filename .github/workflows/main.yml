@@ -1,1 +1,11 @@
 name: INT
+
+on:
+  push:
+  
+jobs:
+  main:
+    runs-on: ubuntu-20.04
+    steps:
+      - run: |
+          echo 123
