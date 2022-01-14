@@ -8,4 +8,12 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - run: |
-          echo 123
+          trap "echo SIGINT" SIGINT
+          trap "echo SIGHUP" SIGHUP
+          trap "echo SIGKILL" SIGKILL
+
+          while true
+          do
+              echo Sleeping
+              sleep 10
+          done
