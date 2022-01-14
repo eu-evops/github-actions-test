@@ -19,4 +19,4 @@ exec.exec('bash', [
 
 })
 
-child_process.execSync('bash -c \'trap "echo BASHSIGINT" SIGINT; trap "echo BASHSIGTERM" SIGTERM; echo Hello World from bash; sleep 60\'')
+child_process.spawnSync('bash -c \'trap "echo BASHSIGINT" SIGINT; trap "echo BASHSIGTERM" SIGTERM; echo Hello World from bash; sleep 60\'')
