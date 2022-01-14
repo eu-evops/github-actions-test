@@ -14,7 +14,7 @@ p.on('exit', (code, signal) => {
 
 process.on('SIGINT', function () {
   console.log('Handle SIGINT');
-  p.kill('SIGINT');
+  // p.kill('SIGINT');
   setTimeout(() => {
     process.exit(2)
   }, 10000)
