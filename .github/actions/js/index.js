@@ -4,7 +4,7 @@ const core = require('@actions/core')
 const process = require('process');
 const child_process = require('child_process');
 
-const p = child_process.spawn('terraform', ['version'])
+const p = child_process.spawn('terraform', ['init'])
 p.stdout.on('data', m => console.log('STDOUT: %s', m))
 p.stderr.on('data', m => console.log('STDERR: %s', m))
 
