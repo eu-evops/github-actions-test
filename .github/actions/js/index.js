@@ -5,4 +5,12 @@ process.addListener('SIGINT', () => {
   console.log('Hello World from SIGINT');
 })
 
-child_process.execSync('sleep 60');
+process.addListener('SIGTERM', () => {
+  console.log('Hello World from SIGTERM');
+})
+
+process.addListener('SIGKILL', () => {
+  console.log('Hello World from SIGKILL');
+})
+
+setTimeout((() => { console.log('timeout'); }), 60000);
