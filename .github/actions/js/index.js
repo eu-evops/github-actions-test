@@ -21,16 +21,6 @@ p.addListener('spawn', code => console.log('SPAWN: %s', code))
 console.log('Node PID', process.pid)
 console.log('Child PID', p.pid)
 
-process.addListener('SIGINT', function () {
-  console.log('Hello World from SIGINT');
-  p.kill('SIGINT');
-})
-
-process.addListener('SIGTERM', function () {
-  console.log('Hello World from SIGTERM');
-  p.kill('SIGTERM');
-})
-
 // exec.exec('bash', [
 //   '-c',
 //   'trap "echo BASHSIGINT" SIGINT; trap "echo BASHSIGTERM" SIGTERM; echo Hello World from bash; sleep 60'
