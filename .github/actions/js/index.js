@@ -1,3 +1,6 @@
+const exec = require('@actions/exec')
+const core = require('@actions/core')
+
 const process = require('process');
 const child_process = require('child_process');
 
@@ -9,5 +12,7 @@ process.addListener('SIGTERM', () => {
   console.log('Hello World from SIGTERM');
 })
 
-
-setInterval(() => { console.log('timeout') }, 1000);
+exec.exec('bash', [
+  '-c',
+  'echo Hello World from bash; sleep 60'
+])
