@@ -1,7 +1,12 @@
 // spawn-test.js
 const { spawn } = require('child_process');
 
-const b = spawn('bash', ['-c', 'trap "echo BASH"; sleep 1111']);
+const b = spawn('terraform', ['init'], { cwd: '../../..' });
+b.on('message', m => console.log('STDOUT: %s', m));
+
+b.stdout.on('data', m => console.log('STDOUT: %s', m));
+b.stderr.on('data', m => console.log('STDERR: %s', m));
+
 b.on('exit', (code, signal) => {
   console.log('Existed with', code, signal);
 })
