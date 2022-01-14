@@ -2,18 +2,11 @@ name: INT
 
 on:
   push: {}
-  
+
 jobs:
   main:
     runs-on: ubuntu-20.04
     steps:
-      - run: |
-          trap "echo SIGINT" SIGINT
-          trap "echo SIGHUP" SIGHUP
-          trap "echo SIGKILL" SIGKILL
+      - uses: checkout@v2
 
-          while true
-          do
-              echo Sleeping
-              sleep 10
-          done
+      - uses: .github/actions/js
