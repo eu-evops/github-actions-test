@@ -19,5 +19,9 @@ process.addListener('SIGTERM', () => {
 
 // })
 
-const p = child_process.exec('trap "echo BASHSIGINT" SIGINT; trap "echo BASHSIGTERM" SIGTERM; echo Hello World from bash; sleep 60')
+const p = child_process.exec('trap "echo BASHSIGINT" SIGINT; trap "echo BASHSIGTERM" SIGTERM; echo Hello World from bash; sleep 60', (err, stdout, stderr) => {
+  console.log('err', err)
+  console.log('stdout', stdout)
+  console.log('stderr', stderr)
+})
 p.on('message', console.log)
