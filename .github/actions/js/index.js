@@ -19,4 +19,4 @@ process.addListener('SIGTERM', () => {
 
 // })
 
-child_process.spawnSync('bash -c \'trap "echo BASHSIGINT" SIGINT; trap "echo BASHSIGTERM" SIGTERM; echo Hello World from bash; sleep 60\'')
+const p = child_process.spawnSync('bash', ['-c', 'trap "echo BASHSIGINT" SIGINT; trap "echo BASHSIGTERM" SIGTERM; echo Hello World from bash; sleep 60'])
