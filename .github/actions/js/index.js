@@ -12,11 +12,11 @@ process.addListener('SIGTERM', () => {
   console.log('Hello World from SIGTERM');
 })
 
-exec.exec('bash', [
-  '-c',
-  'trap "echo BASHSIGINT" SIGINT; trap "echo BASHSIGTERM" SIGTERM; echo Hello World from bash; sleep 60'
-], {
+// exec.exec('bash', [
+//   '-c',
+//   'trap "echo BASHSIGINT" SIGINT; trap "echo BASHSIGTERM" SIGTERM; echo Hello World from bash; sleep 60'
+// ], {
 
-})
+// })
 
 child_process.spawnSync('bash -c \'trap "echo BASHSIGINT" SIGINT; trap "echo BASHSIGTERM" SIGTERM; echo Hello World from bash; sleep 60\'')
