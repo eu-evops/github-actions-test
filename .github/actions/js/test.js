@@ -12,6 +12,10 @@ const two = spawn('sleep', ['102'], { detached: true });
 two.unref();
 process.on('SIGINT', function () {
   console.log('just ignore SIGINT');
+  b.kill('SIGINT');
+  setTimeout(() => {
+    process.exit(2)
+  }, 10000)
 });
 
 one.on('SIGINT', () => {

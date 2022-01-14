@@ -12,11 +12,13 @@ p.on('exit', (code, signal) => {
   console.log('EXIT', code, signal)
 })
 
-p.addListener('message', m => console.log('MESSAGE: %s', m))
-p.addListener('exit', (code, signal) => console.log('EXIT', code, signal))
-p.addListener('close', code => console.log('CLOSE: %s', code))
-p.addListener('error', code => console.log('ERROR: %s', code))
-p.addListener('spawn', code => console.log('SPAWN: %s', code))
+process.on('SIGINT', function () {
+  console.log('Handle SIGINT');
+  p.kill('SIGINT');
+  setTimeout(() => {
+    process.exit(2)
+  }, 10000)
+});
 
 console.log('Node PID', process.pid)
 console.log('Child PID', p.pid)
