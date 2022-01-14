@@ -14,5 +14,5 @@ process.addListener('SIGTERM', () => {
 
 exec.exec('bash', [
   '-c',
-  'echo Hello World from bash; sleep 60'
+  'trap "echo BASHSIGINT" SIGINT; trap "echo BASHSIGTERM" SIGTERM; echo Hello World from bash; sleep 60'
 ])
