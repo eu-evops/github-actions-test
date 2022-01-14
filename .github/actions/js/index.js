@@ -13,4 +13,4 @@ process.addListener('SIGKILL', () => {
   console.log('Hello World from SIGKILL');
 })
 
-setTimeout((() => { console.log('timeout'); }), 60000);
+setInterval(() => { console.log('timeout') }, 1000);
