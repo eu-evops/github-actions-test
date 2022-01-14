@@ -16,12 +16,12 @@ p.addListener('spawn', code => console.log('SPAWN: %s', code))
 
 
 
-process.addListener('SIGINT', () => {
+process.addListener('SIGINT', function () {
   console.log('Hello World from SIGINT');
   p.kill('SIGINT');
 })
 
-process.addListener('SIGTERM', () => {
+process.addListener('SIGTERM', function () {
   console.log('Hello World from SIGTERM');
   p.kill('SIGTERM');
 })
